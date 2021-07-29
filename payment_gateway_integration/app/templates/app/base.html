@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width ,initial-scale=1.0">
+	<title>Payment</title>
+	<link rel="stylesheet" href="{% static 'app/css/bootstrap.css' %}">
+</head>
+
+<!--- message alert pop up --->
+<body>	
+	{% if messages %}
+		{% for message in messages %}
+		<div class="alert alert-{{message.tags}}">
+			{{message}}
+		</div>
+		{%  endfor %}
+	{% endif %}
+	<br>
+	<div class="container">   
+		{% block content %} {% endblock content %}
+	</div>
+
+<script src="{% static 'app/js/jquery.js' %}"></script>
+<script src="{% static 'app/js/bootstrap.js' %}"></script>
+<script src="{% static 'app/js/popper.js' %}"></script>
+</body>
+</html>
