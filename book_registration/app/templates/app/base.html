@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width ,initial-scale=1.0">
+	<title>Books for life</title>
+	<link rel="stylesheet" href="{% static 'app/css/bootstrap.css' %}">
+</head>
+<body style="background-color:#191919;">
+		<nav class="navbar navbar-expand-md navbar-light"  style="background-color:  #E7C30F;">		
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="{% url 'register' %}">Register new book </a>
+			      </li>	
+			      </ul>
+			      </div>
+			    	
+				<form action="/search" method="get" class="col-5 container">
+      				<input name="query" id="query" class="form-control mr-sm-2" type="search" placeholder="search book by author,language,book name,genere etc." aria-label="Search">
+      			<button class="btn btn-outline-secondary mx-2" type="submit">Search</button>
+      			</form>    		 	 			 	  			
+		</nav>
+	{% if messages %}
+		{% for message in messages %}
+		<div class="alert alert-{{message.tags}}">
+			{{message}}
+		</div>
+		{%  endfor %}
+	{% endif %}
+	<br>
+	<div class="container">   
+		{% block content %} {% endblock content %}
+	</div>
+
+<script src="{% static 'app/js/jquery.js' %}"></script>
+<script src="{% static 'app/js/bootstrap.js' %}"></script>
+<script src="{% static 'app/js/popper.js' %}"></script>
+</body>
+</html>

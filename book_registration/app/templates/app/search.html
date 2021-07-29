@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+{% block content%}
+<div class="container">
+	<a class="btn btn-outline-info" href="{% url 'home' %}">Go back to home page</a>
+	<br>
+	<h1 class="text-white text-lg-center">Search results:</h1>
+</div>
+<br>
+ 	{% if query %}	
+		{% for i in data %}
+		<div class="container">
+  			<div class="row">
+    			<div class="col-sm-5">
+					<h2 class="text-white">{{ i.book_name }}</h2>
+					<h5 class="text-info">By-{{ i.author }}</h5>
+					<h6 class="text-warning" >Genere-{{ i.genere }}</h6>
+		    		<h6 class="text-white">Language-{{ i.language }}</h6>
+		    	</div>		
+   				<div class="col-sm-6">
+      				<img src="{{i.image.url}}" class="img" >
+      			</div>
+  			</div>	
+  			</div>
+  			<hr>
+  		<br>	
+		{% endfor %}
+	{% endif %}	
+</div>
+{% endblock content %}
+
+

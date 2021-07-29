@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+{% block content%}
+	{%  for i in list  %}
+  			<div class="row">
+    			<div class="col-sm-5">
+					<h2 class="text-white">{{ i.book_name }}</h2>
+					<h5 class="text-info">By-{{ i.author }}</h5>
+					<h6 class="text-warning" >Genere-{{ i.genere }}</h6>
+		    		<h6 class="text-white">Language-{{ i.language }}</h6>
+		    	</div>		
+   				<div class="col-sm-6">
+      				<img src="{{i.image.url}}" class="img" >
+      			</div>
+  			</div>	
+  			
+  		<hr colour=white>
+  		<br>	
+	{%   endfor   %}
+ {% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+{% load crispy_forms_tags %}
+{% block content%}
+<div class="content-section">
+		<form method ="POST">
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4 text-white">Upload data:</legend> 
+					<div class="form-row align-items-center col-4 text-white">
+						{{form|crispy}}		
+					</div>					
+			</fieldset>
+			<br>
+			<div class="form-group"> 
+				<button class="btn btn-secondary" type="submit">Upload</button>
+				<a class="btn btn-outline-info" href="{% url 'home' %}" type="submit">Go back to home page</a>
+			</div>	
+		</form>	 
+	</div>
+{% endblock content %}
