@@ -1,0 +1,28 @@
+{% extends "app/base.html" %}
+{% block content %}
+<div class="text-center">
+	<br>
+<form method="POST">
+	{% csrf_token %}
+  <input type="text" id="city" name="city" placeholder="enter the city name"><br><br>
+  <button type="submit" value="city" class="btn btn-info">Search</button>
+  </form>
+<br><br>
+Details:
+<br><br>
+<div class="container">
+City : {{ city }}
+<br>
+Temperature : {{ temp }}  (in Celsius)
+<br>
+Pressure : {{ pressure }}
+<br>
+Humidity : {{ humidity }}
+<br>
+Country : {{ country }}
+
+<br>
+Description : {{ description }}
+</div>
+</div>
+{% endblock %}
